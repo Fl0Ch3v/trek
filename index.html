@@ -40,11 +40,11 @@
 		// CHARGEMENT DES DONNEES SUR LA CARTE //
 			
 		// Charger les limites du territoire à partir d'un fichier
-        $.getJSON('data/territoire_pnr.geojson', function(geojson) {
+      /*  $.getJSON('data/territoire_pnr.geojson', function(geojson) {
             var territory = L.geoJSON(geojson);
             territory.addTo(map);
         });
-                
+      */          
                 
         // Boucler sur les objets du fichiers de données des randos pour gérer leur styler et afficher leurs attributs dans une tooltip
         function featureHaie(feature, layer) {
