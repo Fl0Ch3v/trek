@@ -51,7 +51,7 @@
         };
 
 		// Charger les POIs à partir de l'API de Rando Ecrins
-        $.getJSON('data/2017-11-pois.geojson', function(geojson){
+        $.getJSON('data/2017-11-pois.json', function(geojson){
             var pois = L.geoJSON(geojson, {
 				onEachFeature: featurePoi
 			});
@@ -64,7 +64,7 @@
         };
 				
 		// Charger les randos à partir de l'API de Rando Ecrins
-		$.getJSON('data/2017-11-treks.geojson', function(geojson){
+		$.getJSON('data/2017-11-treks.json', function(geojson){
             var trek = L.geoJSON(geojson, {
                 onEachFeature: featureTrek,
                 color: 'red'
@@ -94,14 +94,14 @@
 
                     marker = L.marker(event.latlng)
                     marker.addTo(map);
-                    marker.bindPopup("<b>Clic !</b>").openPopup();
+                    marker.bindPopup("<b>Clic2 !</b>").openPopup();
                 }
 
                 else {
                     map.removeLayer(marker)
                     marker = L.marker(event.latlng)
                     marker.addTo(map);
-                    marker.bindPopup("<b>Clic !</center></b>").openPopup();
+                    marker.bindPopup("<b>Clic2 !</center></b>").openPopup();
                 }
             
         }); 
