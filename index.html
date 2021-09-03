@@ -20,18 +20,18 @@
     <div class="john"> </div>
 
     <button id='green' onclick="changeCoord()">
-        Zoom sur le parc national
+        Zoom sur le Parc naturel régional
     </button>
 
     <button id='red' onclick="changeZoom()">
-        Reinitialiser
+        Dézoom sur le Monde
     </button>
 
     <script>
         // CONFIGURATION DE LA CARTE //
         
 		// Déclarer la carte, son zoom et son centrage
-		var map = L.map('map').setView([44.75, 6.45], 10);
+		var map = L.map('map').setView([50.1455,1.7713], 10);
 		// Charger un fond de carte OSM dans la carte
         L.tileLayer('http://a.tile.opentopomap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -40,43 +40,32 @@
 		// CHARGEMENT DES DONNEES SUR LA CARTE //
 			
 		// Charger les limites du territoire à partir d'un fichier
-        $.getJSON('data/2017-11-territoire-pne.json', function(geojson) {
+        $.getJSON('data/territoire_pnr.geojson', function(geojson) {
             var territory = L.geoJSON(geojson);
             territory.addTo(map);
         });
                 
-		// Boucler sur les objets du fichiers de données des POIs pour gérer leur styler et afficher leurs attributs dans une tooltip
-        function featurePoi(feature, layer) {
-            layer.bindPopup("<b>"+feature.properties.name+"</b>"+"<br>"+feature.properties.description);
-        };
-
-		// Charger les POIs à partir de l'API de Rando Ecrins
-        $.getJSON('data/2017-11-pois.json', function(geojson){
-            var pois = L.geoJSON(geojson, {
-				onEachFeature: featurePoi
-			});
-			pois.addTo(map);
-		});
                 
         // Boucler sur les objets du fichiers de données des randos pour gérer leur styler et afficher leurs attributs dans une tooltip
-        function featureTrek(feature, layer) {
-            layer.bindPopup("<b>"+feature.properties.name+"</b>"+"<br>"+"<br>"+feature.properties.duration_pretty+"<br>"+feature.properties.difficulty.label+"<br>"+feature.properties.departure+"<br>"+feature.properties.arrival+"<br>"+"<br>"+feature.properties.description);
+        function featureHaie(feature, layer) {
+            layer.bindPopup("<b>"+'Plantation de '+feature.properties.long_m+' m'+"</b>"+"<br>"+'à '+feature.properties.commune+'en '+feature.properties.annee);
         };
 				
 		// Charger les randos à partir de l'API de Rando Ecrins
-		$.getJSON('data/2017-11-treks.json', function(geojson){
-            var trek = L.geoJSON(geojson, {
-                onEachFeature: featureTrek,
-                color: 'red'
+		$.getJSON('data/haies_gl.geojson', function(geojson){
+            var haie = L.geoJSON(geojson, {
+                onEachFeature: featureHaie,
+                color: 'green',
+                weight: 5,
 			});
-			trek.addTo(map);
+			haie.addTo(map);
         });
 				
 		// BONUS - ACTIONS SUR LA CARTE
 
 		// BONUS - Ajouter des boutons d'action sous la carte
         function changeCoord() {
-            map.setView([44.75, 6.45]);
+            map.setView([50.1455,1.7713]);
             map.setZoom([10])
         }
 
