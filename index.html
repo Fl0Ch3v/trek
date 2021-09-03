@@ -64,7 +64,7 @@
         };
 				
 		// Charger les randos à partir de l'API de Rando Ecrins
-		$.getJSON('data/2017-11-trek.geojson', function(geojson){
+		$.getJSON('data/2017-11-treks.geojson', function(geojson){
             var trek = L.geoJSON(geojson, {
                 onEachFeature: featureTrek,
                 color: 'red'
