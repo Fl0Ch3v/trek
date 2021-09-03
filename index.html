@@ -52,7 +52,7 @@
         };
 				
 		// Charger les randos à partir de l'API de Rando Ecrins
-		$.getJSON('data/haies_gl.geojson', function(geojson){
+		$.getJSON('data/haies_gl.json', function(geojson){
             var haie = L.geoJSON(geojson, {
                 onEachFeature: featureHaie,
                 color: 'green'
@@ -82,14 +82,14 @@
 
                     marker = L.marker(event.latlng)
                     marker.addTo(map);
-                    marker.bindPopup("<b>Clic !</b>").openPopup();
+                    marker.bindPopup("<b>Clic0 !</b>").openPopup();
                 }
 
                 else {
                     map.removeLayer(marker)
                     marker = L.marker(event.latlng)
                     marker.addTo(map);
-                    marker.bindPopup("<b>Clic !</center></b>").openPopup();
+                    marker.bindPopup("<b>Clic0 !</center></b>").openPopup();
                 }
             
         }); 
