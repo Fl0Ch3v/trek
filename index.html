@@ -40,11 +40,14 @@
 		// CHARGEMENT DES DONNEES SUR LA CARTE //
 			
 		// Charger les limites du territoire à partir d'un fichier
-      /*  $.getJSON('data/territoire_pnr.geojson', function(geojson) {
-            var territory = L.geoJSON(geojson);
+        $.getJSON('data/territoire_pnr.geojson', function(geojson) {
+            var territory = L.geoJSON(geojson, {
+                color: "#006400",
+                fillOpacity: 0,
+            });
             territory.addTo(map);
         });
-      */          
+              
                 
         // Boucler sur les objets du fichiers de données des randos pour gérer leur styler et afficher leurs attributs dans une tooltip
         function featureHaie(feature, layer) {
@@ -71,10 +74,10 @@
         function changeZoom() {
             map.setZoom(2);
             map.setView([0, 0]);
-        }
+        };
 
 		// BONUS - Pouvoir cliquer et ajouter un marqueur sur la carte
-        var marker;   
+        /*var marker;   
         
 		map.on('click', function(event){
              
@@ -92,7 +95,7 @@
                     marker.bindPopup("<b>Clic1 !</center></b>").openPopup();
                 }
             
-        }); 
+        }); */
 		// Fin BONUS
 
     </script>
