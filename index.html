@@ -20,11 +20,11 @@
     <div class="john"> </div>
 
     <button id='green' onclick="changeCoord()">
-        Zoom sur le Parc naturel régional
+        Zoomer sur le Parc naturel régional
     </button>
 
     <button id='red' onclick="changeZoom()">
-        Dézoom sur le Monde
+        Dézoomer sur le Monde
     </button>
 
     <script>
@@ -48,7 +48,7 @@
                 
         // Boucler sur les objets du fichiers de données des randos pour gérer leur styler et afficher leurs attributs dans une tooltip
         function featureHaie(feature, layer) {
-            layer.bindPopup("<b>"+"Plantation de "+feature.properties.long_m+" m"+"</b>"+"<br>"+"<b>"+"à "+feature.properties.commune+" en "+feature.properties.annee+"</b>");
+            layer.bindPopup("<b> Plantation de "+feature.properties.long_m+" m</b>"+"<br>"+"<b>à "+feature.properties.commune+" en "+feature.properties.annee+"</b>");
         };
 				
 		// Charger les randos à partir de l'API de Rando Ecrins
