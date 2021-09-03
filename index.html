@@ -17,15 +17,7 @@
 <body>
 
     <div id="map" style="height: 95vh;"></div>
-    <div class="john"> </div>
 
-    <button id='green' onclick="changeCoord()">
-        Zoom sur le Parc naturel régional
-    </button>
-
-    <button id='red' onclick="changeZoom()">
-        Dézoom sur le Monde
-    </button>
 
     <script>
         // CONFIGURATION DE LA CARTE //
@@ -63,40 +55,7 @@
 			haie.addTo(map);
         });
 				
-		// BONUS - ACTIONS SUR LA CARTE
 
-		// BONUS - Ajouter des boutons d'action sous la carte
-        function changeCoord() {
-            map.setView([50.1455,1.7713]);
-            map.setZoom([10])
-        }
-
-        function changeZoom() {
-            map.setZoom(2);
-            map.setView([0, 0]);
-        };
-
-		// BONUS - Pouvoir cliquer et ajouter un marqueur sur la carte
-        /*var marker;   
-        
-		map.on('click', function(event){
-             
-                if (marker == undefined) {
-
-                    marker = L.marker(event.latlng)
-                    marker.addTo(map);
-                    marker.bindPopup("<b>Clic1 !</b>").openPopup();
-                }
-
-                else {
-                    map.removeLayer(marker)
-                    marker = L.marker(event.latlng)
-                    marker.addTo(map);
-                    marker.bindPopup("<b>Clic1 !</center></b>").openPopup();
-                }
-            
-        }); */
-		// Fin BONUS
 
     </script>
 
