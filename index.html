@@ -51,7 +51,7 @@
         };
 
 		// Charger les POIs à partir de l'API de Rando Ecrins
-        $.getJSON('http://rando.ecrins-parcnational.fr/fr/files/api/trek/939205/pois.geojson', function(geojson){
+        $.getJSON('data/2017-11-pois.geojson', function(geojson){
             var pois = L.geoJSON(geojson, {
 				onEachFeature: featurePoi
 			});
@@ -64,7 +64,7 @@
         };
 				
 		// Charger les randos à partir de l'API de Rando Ecrins
-		$.getJSON('http://rando.ecrins-parcnational.fr/fr/files/api/trek/trek.geojson', function(geojson){
+		$.getJSON('data/2017-11-trek.geojson', function(geojson){
             var trek = L.geoJSON(geojson, {
                 onEachFeature: featureTrek,
                 color: 'red'
