@@ -41,12 +41,12 @@
         });
               
                 
-        // Boucler sur les objets du fichiers de données des randos pour gérer leur styler et afficher leurs attributs dans une tooltip
+        // Boucler sur les objets du fichiers de données des haies pour gérer leur styler et afficher leurs attributs dans une tooltip
         function featureHaie(feature, layer) {
             layer.bindPopup("<b>"+"Plantation de "+feature.properties.long_m+" m"+"<br>"+"à "+feature.properties.commune+" en "+feature.properties.annee+"</b>");
         };
 				
-		// Charger les randos à partir de l'API de Rando Ecrins
+		// Charger les haies à partir d'un fichier
 		$.getJSON('data/haies2_gl.geojson', function(geojson){
             var haie = L.geoJSON(geojson, {
                 onEachFeature: featureHaie,
